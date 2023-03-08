@@ -1,9 +1,14 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: "Roboto", Arial !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(147, 221, 255);
+  background-image: url("../public/backgroundimg/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 code {
