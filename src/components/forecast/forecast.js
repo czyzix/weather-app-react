@@ -37,14 +37,32 @@ const Forecast = ({ data }) => {
                                     <img src={`icons/${item.weather[0].icon}.png`} alt="weather" className="icon-small" />
                                     <label className="day">{forecastDays[idx]}</label>
                                     <label className="description">{item.weather[0].description}</label>
-                                    <label className="min-max">
-                                        {Math.round(item.main.temp_min)}°C /
-                                        {Math.round(item.main.temp_max)}°C
+                                    <label className="temp">
+                                        {Math.round(item.main.temp)}°C
                                     </label>
                                 </div>
                             </AccordionItemButton>
                         </AccordionItemHeading>
-                        <AccordionItemPanel></AccordionItemPanel>
+                        <AccordionItemPanel>
+                            <div className="daily-details-grid">
+                            <div className="daily-details-grid-item">
+                                    <label>Feels like</label>
+                                    <label>{Math.round(item.main.feels_like)}°C</label>
+                                </div>
+                                <div className="daily-details-grid-item">
+                                    <label>Wind</label>
+                                    <label>{Math.round(item.wind.speed)} m/s</label>
+                                </div>
+                                <div className="daily-details-grid-item">
+                                    <label>Humidity</label>
+                                    <label>{item.main.humidity}%</label>
+                                </div>
+                                <div className="daily-details-grid-item">
+                                    <label>Pressure</label>
+                                    <label>{item.main.pressure} hPa</label>
+                                </div>
+                            </div>
+                        </AccordionItemPanel>
                     </AccordionItem>
                 ))}
             </Accordion>
