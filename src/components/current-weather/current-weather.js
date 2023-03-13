@@ -7,7 +7,7 @@ const CurrentWeather = ({data}) => {
 
     useEffect(() => {
         if (data.weather[0].icon) {
-            document.body.style.backgroundImage = `url('../backgrounds/bg${data.weather[0].icon}.jpg')`
+            document.body.style.backgroundImage = `url('backgrounds/bg${data.weather[0].icon}.jpg')`
         }
     }, [imgSrc]);
 
