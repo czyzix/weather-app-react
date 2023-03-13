@@ -1,15 +1,19 @@
-import { useEffect, /* useState */ } from "react";
+import { useEffect, useState } from "react";
 import "./current-weather.css";
 
 const CurrentWeather = ({data}) => {
 
-    /* const [ imgSrc, setImgSrc] = useState(''); */
+    const [ imgSrc, setImgSrc] = useState('');
 
     useEffect(() => {
         if (data.weather[0].icon) {
             document.body.style.backgroundImage = `url('../backgrounds/${data.weather[0].icon}.jpg')`
         }
-    }, []);
+    }, [imgSrc]);
+
+    const handleImgSrcChange = (event) => {
+        setImgSrc(event.target.src);
+    };
 
     return (
         <div>
@@ -20,7 +24,7 @@ const CurrentWeather = ({data}) => {
                         <p className="city">{data.city}</p>
                         <p className="weather-description">{data.weather[0].description}</p>
                     </div>
-                    <img src={`icons/${data.weather[0].icon}.png`} alt="weather" className="weather-icon" id="coco"/>
+                    <img onLoad={handleImgSrcChange} src={`icons/${data.weather[0].icon}.png`} alt="weather" className="weather-icon" id="coco"/>
                 </div>
                 <div className="bottom">
                     <p className="temperature">{Math.round(data.main.temp)}°C</p>
